@@ -1,0 +1,32 @@
+{
+  "name": "GameDBCore",
+  "version": "1.0.0",
+  "summary": "Core GameDB App",
+  "description": "Core library for GameDB Application",
+  "homepage": "https://github.com/dwirandyh",
+  "license": "MIT (iOS)",
+  "authors": {
+    "Dwi Randy Herdinanto": "dwirandyherdinanto@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/dwirandyh/ios-dicoding-submission-pemula.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source_files": "GameDBCore/**/*.{h,m,swift}",
+  "resource_bundles": {
+    "GameDBCore": [
+      "GameDBCore/**/*.{storyboard,xib,xcassets,json,imageset,png}"
+    ]
+  },
+  "dependencies": {
+    "RxSwift": [
+      "~> 5"
+    ],
+    "RxCocoa": [
+      "~> 5"
+    ]
+  }
+}

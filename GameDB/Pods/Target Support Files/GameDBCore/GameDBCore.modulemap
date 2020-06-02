@@ -1,0 +1,6 @@
+framework module GameDBCore {
+  umbrella header "GameDBCore-umbrella.h"
+
+  export *
+  module * { export * }
+}

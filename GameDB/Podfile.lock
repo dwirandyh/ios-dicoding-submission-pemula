@@ -1,0 +1,33 @@
+PODS:
+  - GameDBCore (1.0.0):
+    - RxCocoa (~> 5)
+    - RxSwift (~> 5)
+  - RxCocoa (5.1.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.1)
+
+DEPENDENCIES:
+  - GameDBCore (from `../GameDBCore`)
+
+SPEC REPOS:
+  trunk:
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+
+EXTERNAL SOURCES:
+  GameDBCore:
+    :path: "../GameDBCore"
+
+SPEC CHECKSUMS:
+  GameDBCore: 4ccd0b6aca32ce35b3ff79a81c20e8f8fe3015e4
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+
+PODFILE CHECKSUM: a6ca95e4aafabaf42791e528ea0d0a554d0c7f58
+
+COCOAPODS: 1.9.1

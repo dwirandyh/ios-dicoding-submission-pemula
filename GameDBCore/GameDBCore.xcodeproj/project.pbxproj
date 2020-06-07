@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		03BBBFC4C80F97A927897FC3 /* Pods_GameDBCore_GameDBCoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5655AD0899AB6114E0D20784 /* Pods_GameDBCore_GameDBCoreTests.framework */; };
 		7420813B330ED93348F534C8 /* Pods_GameDBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9D8FB0A64D08A6A4E8A516 /* Pods_GameDBCore.framework */; };
+		8D7EBB19248C401F006D0C9C /* RxAlmofire+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7EBB18248C401F006D0C9C /* RxAlmofire+Extension.swift */; };
+		8D7EBB1B248C406F006D0C9C /* GameRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7EBB1A248C406F006D0C9C /* GameRepository.swift */; };
+		8D7EBB1E248C40C3006D0C9C /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7EBB1D248C40C3006D0C9C /* Game.swift */; };
 		8D9F756F24869BC0009366C3 /* GameDBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9F756524869BC0009366C3 /* GameDBCore.framework */; };
 		8D9F757424869BC0009366C3 /* GameDBCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9F757324869BC0009366C3 /* GameDBCoreTests.swift */; };
 		8D9F757624869BC0009366C3 /* GameDBCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D9F756824869BC0009366C3 /* GameDBCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -30,6 +33,9 @@
 		3A3F20885C3531441527A793 /* Pods-GameDBCore-GameDBCoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameDBCore-GameDBCoreTests.release.xcconfig"; path = "Target Support Files/Pods-GameDBCore-GameDBCoreTests/Pods-GameDBCore-GameDBCoreTests.release.xcconfig"; sourceTree = "<group>"; };
 		5655AD0899AB6114E0D20784 /* Pods_GameDBCore_GameDBCoreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameDBCore_GameDBCoreTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71E151412E6C14354BBEC01A /* Pods-GameDBCore-GameDBCoreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameDBCore-GameDBCoreTests.debug.xcconfig"; path = "Target Support Files/Pods-GameDBCore-GameDBCoreTests/Pods-GameDBCore-GameDBCoreTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8D7EBB18248C401F006D0C9C /* RxAlmofire+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RxAlmofire+Extension.swift"; sourceTree = "<group>"; };
+		8D7EBB1A248C406F006D0C9C /* GameRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRepository.swift; sourceTree = "<group>"; };
+		8D7EBB1D248C40C3006D0C9C /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		8D9F756524869BC0009366C3 /* GameDBCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GameDBCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D9F756824869BC0009366C3 /* GameDBCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameDBCore.h; sourceTree = "<group>"; };
 		8D9F756924869BC0009366C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -62,6 +68,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D7EBB17248C400B006D0C9C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8D7EBB18248C401F006D0C9C /* RxAlmofire+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		8D7EBB1C248C40B4006D0C9C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8D7EBB1D248C40C3006D0C9C /* Game.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		8D9F755B24869BC0009366C3 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +107,8 @@
 		8D9F756724869BC0009366C3 /* GameDBCore */ = {
 			isa = PBXGroup;
 			children = (
+				8D7EBB1C248C40B4006D0C9C /* Model */,
+				8D7EBB17248C400B006D0C9C /* Extension */,
 				8DA71F202486A74C00A649CB /* Repository */,
 				8D9F756824869BC0009366C3 /* GameDBCore.h */,
 				8D9F756924869BC0009366C3 /* Info.plist */,
@@ -105,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				8DA71F212486A75B00A649CB /* ExampleRepository.swift */,
+				8D7EBB1A248C406F006D0C9C /* GameRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -306,7 +331,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D7EBB1B248C406F006D0C9C /* GameRepository.swift in Sources */,
+				8D7EBB19248C401F006D0C9C /* RxAlmofire+Extension.swift in Sources */,
 				8DA71F222486A75B00A649CB /* ExampleRepository.swift in Sources */,
+				8D7EBB1E248C40C3006D0C9C /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

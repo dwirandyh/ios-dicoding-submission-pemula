@@ -1,7 +1,14 @@
 PODS:
+  - Alamofire (5.1.0)
   - GameDBCore (1.0.0):
+    - RxAlamofire
     - RxCocoa (~> 5)
     - RxSwift (~> 5)
+  - RxAlamofire (5.3.1):
+    - RxAlamofire/Core (= 5.3.1)
+  - RxAlamofire/Core (5.3.1):
+    - Alamofire (~> 5.1)
+    - RxSwift (~> 5.1)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -14,6 +21,8 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Alamofire
+    - RxAlamofire
     - RxCocoa
     - RxRelay
     - RxSwift
@@ -23,7 +32,9 @@ EXTERNAL SOURCES:
     :path: "../GameDBCore"
 
 SPEC CHECKSUMS:
-  GameDBCore: 4ccd0b6aca32ce35b3ff79a81c20e8f8fe3015e4
+  Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
+  GameDBCore: daec5d945723e4a559f684261fb7bc065641b197
+  RxAlamofire: 15502b290253fab68688dafd60914c6390e9cc73
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178

@@ -29,6 +29,7 @@ Pod::Spec.new do |s|
   #s.public_header_files = 'Pod/Classes/**/*.h'
   s.dependency 'RxSwift', '~> 5'
   s.dependency 'RxCocoa', '~> 5'
+  s.dependency 'RxAlamofire'
 
 
 end

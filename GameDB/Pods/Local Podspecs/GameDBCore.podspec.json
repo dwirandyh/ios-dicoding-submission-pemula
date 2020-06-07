@@ -27,6 +27,9 @@
     ],
     "RxCocoa": [
       "~> 5"
+    ],
+    "RxAlamofire": [
+
     ]
   }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Swinject
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -18,10 +19,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
-           window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-           window?.windowScene = windowScene
-           window?.rootViewController = HomeViewController()
-           window?.makeKeyAndVisible()
+        let viewController: HomeViewController = Assembler.sharedAssembler.resolver.resolve(HomeViewController.self)!
+        let navigationController: UINavigationController = UINavigationController(rootViewController: viewController)
+        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        window?.windowScene = windowScene
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -30,6 +30,7 @@ Pod::Spec.new do |s|
   s.dependency 'RxSwift', '~> 5'
   s.dependency 'RxCocoa', '~> 5'
   s.dependency 'RxAlamofire'
+  s.dependency 'Swinject'
 
 
 end

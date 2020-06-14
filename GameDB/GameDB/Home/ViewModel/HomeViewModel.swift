@@ -12,19 +12,19 @@ import RxCocoa
 import GameDBCore
 
 class HomeViewModel {
-    let disposeBag: DisposeBag = DisposeBag()
     
+    var repository: GameRepository
+    let disposeBag: DisposeBag = DisposeBag()
     var gameList: BehaviorRelay<[Game]> = BehaviorRelay<[Game]>(value: [])
     
+    init(repository: GameRepository) {
+        self.repository = repository
+    }
+    
     func getMovies(){
-        let repository: GameRepository = GameRepositoryImpl()
-        repository.getGameList()
-            .observeOn(MainScheduler.instance)
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+        self.repository.getGameList()
             .subscribe(onNext: { (games) in
                 self.gameList.accept(games)
-            }, onError: { (error) in
-                print(error)
             }).disposed(by: self.disposeBag)
     }
 }

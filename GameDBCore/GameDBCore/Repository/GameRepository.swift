@@ -27,6 +27,8 @@ public class GameRepositoryImpl: GameRepository {
             .flatMap { (gameListResult) -> Observable<[Game]> in
                 return Observable.just(gameListResult.results)
         }
+        .observeOn(MainScheduler.instance)
+        .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
         
         return request
     }

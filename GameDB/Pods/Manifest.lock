@@ -4,6 +4,7 @@ PODS:
     - RxAlamofire
     - RxCocoa (~> 5)
     - RxSwift (~> 5)
+    - Swinject
   - RxAlamofire (5.3.1):
     - RxAlamofire/Core (= 5.3.1)
   - RxAlamofire/Core (5.3.1):
@@ -15,9 +16,14 @@ PODS:
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
   - RxSwift (5.1.1)
+  - SDWebImage (5.8.1):
+    - SDWebImage/Core (= 5.8.1)
+  - SDWebImage/Core (5.8.1)
+  - Swinject (2.7.1)
 
 DEPENDENCIES:
   - GameDBCore (from `../GameDBCore`)
+  - SDWebImage
 
 SPEC REPOS:
   trunk:
@@ -26,6 +32,8 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
+    - SDWebImage
+    - Swinject
 
 EXTERNAL SOURCES:
   GameDBCore:
@@ -33,12 +41,14 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
-  GameDBCore: daec5d945723e4a559f684261fb7bc065641b197
+  GameDBCore: 2a03769d9e1458cecea54ddaed3ced47d8c3e553
   RxAlamofire: 15502b290253fab68688dafd60914c6390e9cc73
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  SDWebImage: e3eae2eda88578db0685a0c88597fdadd9433f05
+  Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
 
-PODFILE CHECKSUM: a6ca95e4aafabaf42791e528ea0d0a554d0c7f58
+PODFILE CHECKSUM: ad15762e36c6bd7e17f5751548b600233cebca1a
 
 COCOAPODS: 1.9.1

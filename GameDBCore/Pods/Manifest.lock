@@ -11,11 +11,13 @@ PODS:
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
   - RxSwift (5.1.1)
+  - Swinject (2.7.1)
 
 DEPENDENCIES:
   - RxAlamofire
   - RxCocoa (~> 5)
   - RxSwift (~> 5)
+  - Swinject
 
 SPEC REPOS:
   trunk:
@@ -24,6 +26,7 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
+    - Swinject
 
 SPEC CHECKSUMS:
   Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
@@ -31,7 +34,8 @@ SPEC CHECKSUMS:
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
 
-PODFILE CHECKSUM: 0f9161728cc9f5dbb86b42bb4996f428eadaba9c
+PODFILE CHECKSUM: fa90d433827abb14c6539854fc3173dd24abf997
 
 COCOAPODS: 1.9.1

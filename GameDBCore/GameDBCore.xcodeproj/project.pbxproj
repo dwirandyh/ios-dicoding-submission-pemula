@@ -16,7 +16,8 @@
 		8D9F756F24869BC0009366C3 /* GameDBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9F756524869BC0009366C3 /* GameDBCore.framework */; };
 		8D9F757424869BC0009366C3 /* GameDBCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9F757324869BC0009366C3 /* GameDBCoreTests.swift */; };
 		8D9F757624869BC0009366C3 /* GameDBCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D9F756824869BC0009366C3 /* GameDBCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8DA71F222486A75B00A649CB /* ExampleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA71F212486A75B00A649CB /* ExampleRepository.swift */; };
+		8DD2274E249E68CD00B06327 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD2274D249E68CD00B06327 /* BaseViewController.swift */; };
+		8DD22752249E68E700B06327 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD22751249E68E700B06327 /* BaseViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +45,8 @@
 		8D9F756E24869BC0009366C3 /* GameDBCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameDBCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D9F757324869BC0009366C3 /* GameDBCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDBCoreTests.swift; sourceTree = "<group>"; };
 		8D9F757524869BC0009366C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8DA71F212486A75B00A649CB /* ExampleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleRepository.swift; sourceTree = "<group>"; };
+		8DD2274D249E68CD00B06327 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		8DD22751249E68E700B06327 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		A6A3215F2139F62CBE03B497 /* Pods-GameDBCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameDBCore.release.xcconfig"; path = "Target Support Files/Pods-GameDBCore/Pods-GameDBCore.release.xcconfig"; sourceTree = "<group>"; };
 		D48E1A242DFCADA0AA5C574F /* Pods-GameDBCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameDBCore.debug.xcconfig"; path = "Target Support Files/Pods-GameDBCore/Pods-GameDBCore.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,9 +119,10 @@
 		8D9F756724869BC0009366C3 /* GameDBCore */ = {
 			isa = PBXGroup;
 			children = (
+				8DD2274C249E68B600B06327 /* Base */,
 				8D243EF5248C8B7C007856F4 /* DI */,
-				8D7EBB1C248C40B4006D0C9C /* Model */,
 				8D7EBB17248C400B006D0C9C /* Extension */,
+				8D7EBB1C248C40B4006D0C9C /* Model */,
 				8DA71F202486A74C00A649CB /* Repository */,
 				8D9F756824869BC0009366C3 /* GameDBCore.h */,
 				8D9F756924869BC0009366C3 /* Info.plist */,
@@ -139,10 +142,34 @@
 		8DA71F202486A74C00A649CB /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				8DA71F212486A75B00A649CB /* ExampleRepository.swift */,
 				8D7EBB1A248C406F006D0C9C /* GameRepository.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		8DD2274C249E68B600B06327 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				8DD22750249E68DA00B06327 /* ViewModel */,
+				8DD2274F249E68D100B06327 /* ViewController */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		8DD2274F249E68D100B06327 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8DD2274D249E68CD00B06327 /* BaseViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		8DD22750249E68DA00B06327 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8DD22751249E68E700B06327 /* BaseViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		C5A1C24BFD8A009A3CA98743 /* Pods */ = {
@@ -342,11 +369,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DD2274E249E68CD00B06327 /* BaseViewController.swift in Sources */,
 				8D243EF7248C8B85007856F4 /* CoreDI.swift in Sources */,
 				8D7EBB1B248C406F006D0C9C /* GameRepository.swift in Sources */,
 				8D7EBB19248C401F006D0C9C /* RxAlmofire+Extension.swift in Sources */,
-				8DA71F222486A75B00A649CB /* ExampleRepository.swift in Sources */,
 				8D7EBB1E248C40C3006D0C9C /* Game.swift in Sources */,
+				8DD22752249E68E700B06327 /* BaseViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

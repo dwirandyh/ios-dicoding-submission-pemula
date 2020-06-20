@@ -10,14 +10,7 @@ import UIKit
 import RxSwift
 import GameDBCore
 
-protocol HomeView {
-    func setupObserver()
-}
-
-class HomeViewController: UIViewController {
-    
-    let disposeBag: DisposeBag = DisposeBag()
-    var homeViewModel: HomeViewModel!
+class HomeViewController: BaseViewController<HomeViewModel> {
     
     lazy var tableView: UITableView = {
         let tableView: UITableView = UITableView()
@@ -30,28 +23,14 @@ class HomeViewController: UIViewController {
         return tableView
     }()
     
-    init(viewModel: HomeViewModel){
-        self.homeViewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        self.homeViewModel = nil
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setupView()
-        self.setupObserver()
-        
-        self.homeViewModel.getMovies()
+        self.viewModel.getMovies()
     }
-}
-
-extension HomeViewController {
-    func setupView(){
+    
+    override open func setupView() {
+        super.setupView()
         self.title = "Game DB"
         
         self.view.backgroundColor = ResourceHelper.Color.backgroundColor
@@ -61,14 +40,17 @@ extension HomeViewController {
         self.tableView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
         self.tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
     }
-}
-
-
-extension HomeViewController: HomeView {
-    func setupObserver(){
-        self.homeViewModel.gameList.bind(to: self.tableView.rx.items(cellIdentifier: "GameView", cellType: GameViewCell.self)) { (row, element, cell) in
+    
+    override open func setupObserver() {
+        super.setupObserver()
+        
+        self.viewModel.gameListObservable.bind(to: self.tableView.rx.items(cellIdentifier: "GameView", cellType: GameViewCell.self)) { (row, element, cell) in
             cell.bindView(item: element)
         }.disposed(by: self.disposeBag)
     }
+}
+
+
+extension HomeViewController {
     
 }

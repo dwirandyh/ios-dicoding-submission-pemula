@@ -17,5 +17,13 @@ public class CoreDI: Assembly {
         container.register(GameRepository.self) { (resolver) in
             GameRepositoryImpl()
         }
+        
+        container.register(BaseViewModel.self) { (resolver) in
+            BaseViewModel()
+        }
+        
+        container.register(BaseViewController.self) { (resolver) in
+            BaseViewController(viewModel: resolver.resolve(BaseViewModel.self)!)
+        }
     }
 }

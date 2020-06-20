@@ -11,20 +11,23 @@ import RxSwift
 import RxCocoa
 import GameDBCore
 
-class HomeViewModel {
+class HomeViewModel: BaseViewModel {
     
     var repository: GameRepository
     let disposeBag: DisposeBag = DisposeBag()
-    var gameList: BehaviorRelay<[Game]> = BehaviorRelay<[Game]>(value: [])
+    var gameListObservable: BehaviorRelay<[Game]> = BehaviorRelay<[Game]>(value: [])
     
     init(repository: GameRepository) {
         self.repository = repository
+        super.init()
     }
     
     func getMovies(){
+        self.loadingObservable.accept(true)
         self.repository.getGameList()
             .subscribe(onNext: { (games) in
-                self.gameList.accept(games)
+                self.gameListObservable.accept(games)
+                self.loadingObservable.accept(false)
             }).disposed(by: self.disposeBag)
     }
 }

@@ -21,6 +21,9 @@ struct ResourceHelper {
     
     struct Image {
         static let placeholder: UIImage = UIImage(named: "Placeholder")!
+        static let pc: UIImage = UIImage(named: "ic_pc")!
+        static let playStation: UIImage = UIImage(named: "ic_playstation")!
+        static let xbox: UIImage = UIImage(named: "ic_xbox")!
     }
     
     struct Typography {
@@ -53,8 +56,8 @@ struct ResourceHelper {
     }
 }
 
-enum PlatformLogo {
-    static let windows: UIImage = UIImage(named: "ic_windows")!
-    static let playStation: UIImage = UIImage(named: "ic_windows")!
-    static let xbox: UIImage = UIImage(named: "ic_windows")!
+enum GamePlatform: String {
+    case pc = "PC"
+    case playstation = "PlayStation"
+    case xbox = "Xbox"
 }

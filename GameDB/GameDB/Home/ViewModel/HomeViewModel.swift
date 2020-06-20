@@ -22,12 +22,19 @@ class HomeViewModel: BaseViewModel {
         super.init()
     }
     
-    func getMovies(){
+    func gatRecommendationGame(){
         self.loadingObservable.accept(true)
         self.repository.getGameList()
             .subscribe(onNext: { (games) in
                 self.gameListObservable.accept(games)
                 self.loadingObservable.accept(false)
+            }).disposed(by: self.disposeBag)
+    }
+    
+    func searchGame(query: String){
+        self.repository.searchGame(query: query)
+            .subscribe(onNext: { (games) in
+                self.gameListObservable.accept(games)
             }).disposed(by: self.disposeBag)
     }
 }

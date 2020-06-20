@@ -63,9 +63,10 @@ class GameViewCell: UITableViewCell {
         return label
     }()
     
-    private lazy var windowsImage: UIImageView = {
+    private lazy var pcImage: UIImageView = {
         let imageView: UIImageView = UIImageView()
-        imageView.image = PlatformLogo.windows
+        imageView.image = ResourceHelper.Image.pc
+        imageView.isHidden = true
         imageView.widthAnchor.constraint(equalToConstant: 14).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 14).isActive = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -74,7 +75,8 @@ class GameViewCell: UITableViewCell {
     
     private lazy var playStationImage: UIImageView = {
         let imageView: UIImageView = UIImageView()
-        imageView.image = PlatformLogo.playStation
+        imageView.image = ResourceHelper.Image.playStation
+        imageView.isHidden = true
         imageView.widthAnchor.constraint(equalToConstant: 14).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 14).isActive = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -83,7 +85,8 @@ class GameViewCell: UITableViewCell {
     
     private lazy var xboxImage: UIImageView = {
         let imageView: UIImageView = UIImageView()
-        imageView.image = PlatformLogo.xbox
+        imageView.image = ResourceHelper.Image.xbox
+        imageView.isHidden = true
         imageView.widthAnchor.constraint(equalToConstant: 14).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 14).isActive = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -121,7 +124,7 @@ class GameViewCell: UITableViewCell {
         stackView.axis = .horizontal
         stackView.spacing = ResourceHelper.Spacing.small
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.addArrangedSubview(self.windowsImage)
+        stackView.addArrangedSubview(self.pcImage)
         stackView.addArrangedSubview(self.playStationImage)
         stackView.addArrangedSubview(self.xboxImage)
         return stackView
@@ -174,11 +177,32 @@ extension GameViewCell {
 }
 
 extension GameViewCell {
-    func bindView(item: Game){
+    func displayData(item: Game){
         self.titleLabel.text = item.name
         self.genreLabel.text = "Action, Adventure"
-        self.playTimeLabel.text = "\(item.playtime) hours"
-        self.ratingLabel.text = "\(String(format: "%.1f", item.rating))"
-        self.backgroundImageView.sd_setImage(with: URL(string: item.backgroundImage), placeholderImage: UIImage(named: "placeholder"))
+        self.playTimeLabel.text = "\(item.playtime ?? 0) hours"
+        self.ratingLabel.text = "\(String(format: "%.1f", item.rating ?? 0))"
+        if let backgroundImage = item.backgroundImage {
+            self.backgroundImageView.sd_setImage(with: URL(string: backgroundImage), placeholderImage: UIImage(named: "placeholder"))
+        }
+        
+        self.displayPlatform(parentPlatform: item.parentPlatforms)
+    }
+    
+    func displayPlatform(parentPlatform: [ParentPlatform]?){
+        guard let parents = parentPlatform else { return }
+        for parent in parents {
+            let gamePlatform = GamePlatform(rawValue: parent.platform?.name ?? "")
+            switch gamePlatform {
+            case .pc:
+                self.pcImage.isHidden = false
+            case .playstation:
+                self.playStationImage.isHidden = false
+            case .xbox:
+                self.xboxImage.isHidden = false
+            case .none:
+                break
+            }
+        }
     }
 }

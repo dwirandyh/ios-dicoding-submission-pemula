@@ -12,8 +12,8 @@ struct GameListResult: Codable {
     public var count: Int
     public var next: String?
     public var previous: String?
-    public var results: [Game]
-
+    public var results: [Game]?
+    
     public init(count: Int, next: String, previous: String, results: [Game]) {
         self.count = count
         self.next = next
@@ -23,20 +23,21 @@ struct GameListResult: Codable {
 }
 
 public struct Game: Codable {
-    public var id: Int
-    public var slug: String
-    public var name: String
-    public var released: String
-    public var tba: Bool
-    public var backgroundImage: String
-    public var rating: Float
-    public var ratingTop: Int
-    public var ratingsCount: Int
-    public var added: Int
-    public var playtime: Int
-    public var suggestionsCount: Int
-
-    public init(id: Int, slug: String, name: String, released: String, tba: Bool, backgroundImage: String, rating: Float, ratingTop: Int, ratingsCount: Int, added: Int, playtime: Int, suggestionsCount: Int) {
+    public var id: Int?
+    public var slug: String?
+    public var name: String?
+    public var released: String?
+    public var tba: Bool?
+    public var backgroundImage: String?
+    public var rating: Float?
+    public var ratingTop: Int?
+    public var ratingsCount: Int?
+    public var added: Int?
+    public var playtime: Int?
+    public var suggestionsCount: Int?
+    public var parentPlatforms: [ParentPlatform]?
+    
+    public init(id: Int?, slug: String?, name: String?, released: String?, tba: Bool?, backgroundImage: String?, rating: Float?, ratingTop: Int?, ratingsCount: Int?, added: Int?, playtime: Int?, suggestionsCount: Int?) {
         self.id = id
         self.slug = slug
         self.name = name
@@ -50,4 +51,14 @@ public struct Game: Codable {
         self.playtime = playtime
         self.suggestionsCount = suggestionsCount
     }
+}
+
+public struct ParentPlatform: Codable {
+    public var platform: Platform?
+}
+
+public struct Platform: Codable {
+    public var id: Int?
+    public var name: String?
+    public var slug: String?
 }

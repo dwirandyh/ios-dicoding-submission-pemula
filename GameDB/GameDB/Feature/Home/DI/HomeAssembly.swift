@@ -12,13 +12,18 @@ import GameDBCore
 
 class HomeAssembly: Assembly {
     func assemble(container: Container) {
+        container.register(HomeRouter.self) { (resolver) in
+            return HomeRouterImpl()
+        }
+        
         container.register(HomeViewModel.self) { (resolver) in
             let repository = resolver.resolve(GameRepository.self)
             return HomeViewModel(repository: repository!)
         }
         container.register(HomeViewController.self) { (resolver) in
             let viewModel = resolver.resolve(HomeViewModel.self)
-            return HomeViewController(viewModel: viewModel!)
+            let router = resolver.resolve(HomeRouter.self)
+            return HomeViewController(viewModel: viewModel!, router: router!)
         }
     }
 }

@@ -21,6 +21,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let viewController: HomeViewController = Assembler.sharedAssembler.resolver.resolve(HomeViewController.self)!
         let navigationController: UINavigationController = UINavigationController(rootViewController: viewController)
+        navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: ResourceHelper.Color.green]
+        navigationController.navigationBar.tintColor = ResourceHelper.Color.green
+        navigationController.navigationBar.backItem?.titleView?.tintColor = ResourceHelper.Color.green
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         window?.rootViewController = navigationController

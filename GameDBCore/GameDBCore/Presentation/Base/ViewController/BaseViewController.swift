@@ -31,19 +31,23 @@ open class BaseViewController<T: BaseViewModel>: UIViewController {
         return alert
     }()
     
+    public lazy var activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.hidesWhenStopped = true
+        return activityIndicator
+    }()
+    
     
     
     public init(viewModel: T){
         super.init(nibName: nil, bundle: nil)
         self.viewModel = viewModel
-    
+        
         self.setupView()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            self.setupObserver()
+        }
     }
-    
-    open override func viewDidAppear(_ animated: Bool) {
-        self.setupObserver()
-    }
-
     
     required public init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -51,7 +55,6 @@ open class BaseViewController<T: BaseViewModel>: UIViewController {
     
     open func setupObserver(){
         self.viewModel.loadingObservable
-            .asObservable()
             .subscribe(onNext: { (isLoading) in
                 if isLoading {
                     if self.presentedViewController == nil  {
@@ -63,10 +66,8 @@ open class BaseViewController<T: BaseViewModel>: UIViewController {
                     }
                 }
             }).disposed(by: self.disposeBag)
-        
     }
     
     open func setupView(){
-        
     }
 }

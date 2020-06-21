@@ -119,11 +119,10 @@
 		8D9F756724869BC0009366C3 /* GameDBCore */ = {
 			isa = PBXGroup;
 			children = (
-				8DD2274C249E68B600B06327 /* Base */,
 				8D243EF5248C8B7C007856F4 /* DI */,
-				8D7EBB17248C400B006D0C9C /* Extension */,
-				8D7EBB1C248C40B4006D0C9C /* Model */,
-				8DA71F202486A74C00A649CB /* Repository */,
+				8DD2275E249E9C8600B06327 /* External */,
+				8DD2275C249E9C6600B06327 /* Data */,
+				8DD2275D249E9C6D00B06327 /* Presentation */,
 				8D9F756824869BC0009366C3 /* GameDBCore.h */,
 				8D9F756924869BC0009366C3 /* Info.plist */,
 			);
@@ -170,6 +169,31 @@
 				8DD22751249E68E700B06327 /* BaseViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8DD2275C249E9C6600B06327 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				8D7EBB1C248C40B4006D0C9C /* Model */,
+				8DA71F202486A74C00A649CB /* Repository */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		8DD2275D249E9C6D00B06327 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				8DD2274C249E68B600B06327 /* Base */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		8DD2275E249E9C8600B06327 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				8D7EBB17248C400B006D0C9C /* Extension */,
+			);
+			path = External;
 			sourceTree = "<group>";
 		};
 		C5A1C24BFD8A009A3CA98743 /* Pods */ = {

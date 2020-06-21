@@ -15,7 +15,8 @@ extension Assembler {
         let container = Container()
         let assembler = Assembler([
             CoreDI(),
-            HomeAssembly()
+            HomeAssembly(),
+            DetailAssembly()
         ], container: container)
         
         return assembler

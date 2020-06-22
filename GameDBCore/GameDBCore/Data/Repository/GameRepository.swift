@@ -19,6 +19,7 @@ public enum NetworkError: Error {
 public protocol GameRepository {
     func getGameList() -> Observable<[Game]>
     func searchGame(query: String) -> Observable<[Game]>
+    func getGameDetail(slug: String) -> Observable<Game>
 }
 
 public class GameRepositoryImpl: GameRepository {
@@ -38,8 +39,17 @@ public class GameRepositoryImpl: GameRepository {
                 throw NetworkError.notFound
                 
         }
-        .observeOn(MainScheduler.instance)
         .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+        .observeOn(MainScheduler.instance)
+        
+        return request
+    }
+    
+    public func getGameDetail(slug: String) -> Observable<Game> {
+        let request = requestData(.get, "\(BASE_URL)/games/\(slug)")
+            .mapObject(type: Game.self)
+            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+            .observeOn(MainScheduler.instance)
         
         return request
     }

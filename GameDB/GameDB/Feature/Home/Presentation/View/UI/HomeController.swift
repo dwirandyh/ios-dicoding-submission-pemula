@@ -88,7 +88,8 @@ class HomeViewController: BaseViewController<HomeViewModel> {
         }.disposed(by: self.disposeBag)
         
         self.tableView.rx.modelSelected(Game.self).subscribe(onNext: { (model) in
-            self.router.goToDetail(self)
+            guard let slug = model.slug else { return }
+            self.router.goToDetail(self, slug: slug)
         }).disposed(by: self.disposeBag)
         
         searchBar.rx.text

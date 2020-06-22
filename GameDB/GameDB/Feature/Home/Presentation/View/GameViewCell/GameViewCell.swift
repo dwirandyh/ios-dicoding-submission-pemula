@@ -15,6 +15,8 @@ class GameViewCell: UITableViewCell {
     private lazy var backgroundImageView: UIImageView = {
         let imageView: UIImageView = UIImageView()
         imageView.addShadow()
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         imageView.layer.cornerRadius = ResourceHelper.Spacing.tiny
         imageView.widthAnchor.constraint(equalToConstant: 90).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 120).isActive = true

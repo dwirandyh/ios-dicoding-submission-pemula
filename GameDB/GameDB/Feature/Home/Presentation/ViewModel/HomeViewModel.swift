@@ -14,7 +14,6 @@ import GameDBCore
 class HomeViewModel: BaseViewModel {
     
     var repository: GameRepository
-    let disposeBag: DisposeBag = DisposeBag()
     var gameListObservable: BehaviorRelay<[Game]> = BehaviorRelay<[Game]>(value: [])
     
     init(repository: GameRepository) {

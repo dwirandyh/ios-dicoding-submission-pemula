@@ -8,6 +8,7 @@ target 'GameDB' do
   # Pods for GameDB
   pod 'GameDBCore', :path => '../GameDBCore'
   pod 'SDWebImage'
+  pod 'Cosmos'
 
   target 'GameDBTests' do
     inherit! :search_paths

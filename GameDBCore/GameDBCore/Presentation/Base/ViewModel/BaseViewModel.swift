@@ -11,8 +11,10 @@ import RxRelay
 import RxSwift
 
 open class BaseViewModel {
+    
     public var loadingObservable: BehaviorRelay<Bool> = BehaviorRelay(value: false)
     
+    public let disposeBag: DisposeBag = DisposeBag()
     
     public init(){
     }

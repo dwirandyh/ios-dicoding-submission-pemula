@@ -26,9 +26,11 @@ public struct Game: Codable {
     public var id: Int?
     public var slug: String?
     public var name: String?
+    public var description: String?
     public var released: String?
     public var tba: Bool?
     public var backgroundImage: String?
+    public var backgroundImageAdditional: String?
     public var rating: Float?
     public var ratingTop: Int?
     public var ratingsCount: Int?
@@ -37,19 +39,25 @@ public struct Game: Codable {
     public var suggestionsCount: Int?
     public var parentPlatforms: [ParentPlatform]?
     
-    public init(id: Int?, slug: String?, name: String?, released: String?, tba: Bool?, backgroundImage: String?, rating: Float?, ratingTop: Int?, ratingsCount: Int?, added: Int?, playtime: Int?, suggestionsCount: Int?) {
+    public init(id: Int?, slug: String?, name: String?, description: String?, released: String?, tba: Bool?, backgroundImage: String?, backgroundImageAdditional: String?, rating: Float?, ratingTop: Int?, ratingsCount: Int?, added: Int?, playtime: Int?, suggestionsCount: Int?) {
         self.id = id
         self.slug = slug
         self.name = name
+        self.description = description
         self.released = released
         self.tba = tba
         self.backgroundImage = backgroundImage
+        self.backgroundImageAdditional = backgroundImageAdditional
         self.rating = rating
         self.ratingTop = ratingTop
         self.ratingsCount = ratingsCount
         self.added = added
         self.playtime = playtime
         self.suggestionsCount = suggestionsCount
+    }
+    
+    public static var defaultValue: Game {
+        return Game(id: 0, slug: "", name: "", description: "" , released: "", tba: false, backgroundImage: "", backgroundImageAdditional: "" , rating: 5, ratingTop: 5, ratingsCount: 0, added: 0, playtime: 0, suggestionsCount: 0)
     }
 }
 

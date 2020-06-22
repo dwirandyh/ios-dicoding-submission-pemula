@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,19 +16,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hqX-7i-YDr">
-                                <rect key="frame" x="-7" y="0.0" width="421" height="896"/>
-                                <viewLayoutGuide key="contentLayoutGuide" id="UFh-vv-E3c"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="0E1-jw-Miw"/>
-                            </scrollView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ugB-3P-cR2" customClass="CosmosView" customModule="Cosmos">
+                                <rect key="frame" x="55" y="307" width="158" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
+                                        <color key="value" name="Orange"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="emptyColor">
+                                        <color key="value" red="0.78823529410000004" green="0.78823529410000004" blue="0.81960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
+                                        <color key="value" red="0.76862745099999996" green="0.76862745099999996" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
+                                        <color key="value" name="Orange"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="hqX-7i-YDr" firstAttribute="leading" secondItem="RVY-Vt-tmV" secondAttribute="leading" id="RaQ-uG-pVY"/>
-                            <constraint firstItem="hqX-7i-YDr" firstAttribute="top" secondItem="RVY-Vt-tmV" secondAttribute="top" id="aSx-0g-eO0"/>
-                            <constraint firstItem="RVY-Vt-tmV" firstAttribute="bottom" secondItem="hqX-7i-YDr" secondAttribute="bottom" id="kri-Ci-vX5"/>
-                            <constraint firstItem="RVY-Vt-tmV" firstAttribute="trailing" secondItem="hqX-7i-YDr" secondAttribute="trailing" id="yjz-iG-u13"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="RVY-Vt-tmV"/>
                     </view>
                     <navigationItem key="navigationItem" id="Skt-kT-M9C"/>
@@ -55,4 +73,9 @@
             <point key="canvasLocation" x="400.00000000000006" y="-180.13392857142856"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="Orange">
+            <color red="0.99199998378753662" green="0.62699997425079346" blue="0.31799998879432678" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

@@ -13,7 +13,8 @@ import GameDBCore
 class DetailAssembly: Assembly {
     func assemble(container: Container) {
         container.register(DetailViewModel.self) { (resolver) in
-            return DetailViewModel()
+            let repository = resolver.resolve(GameRepository.self)
+            return DetailViewModel(repository: repository!)
         }
         container.register(DetailViewController.self) { (resolver) in
             let viewModel = resolver.resolve(DetailViewModel.self)

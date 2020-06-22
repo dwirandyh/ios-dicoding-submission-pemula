@@ -7,23 +7,24 @@
 //
 
 import UIKit
+import RxSwift
+import GameDBCore
+import SDWebImage
 
 class DetailHeader: UIView {
-
+    
+    let disposeBag: DisposeBag = DisposeBag()
+    var gameObservable: Observable<Game>
     
     private lazy var backgroundView: UIView = {
         let container: UIView = UIView()
         container.backgroundColor = .clear
         
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "img_background")
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        container.addSubview(imageView)
-        imageView.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
-        imageView.topAnchor.constraint(equalTo: container.topAnchor).isActive = true
-        imageView.trailingAnchor.constraint(equalTo: container.trailingAnchor).isActive = true
-        imageView.bottomAnchor.constraint(equalTo: container.bottomAnchor).isActive = true
+        container.addSubview(self.backgroundImageView)
+        backgroundImageView.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
+        backgroundImageView.topAnchor.constraint(equalTo: container.topAnchor).isActive = true
+        backgroundImageView.trailingAnchor.constraint(equalTo: container.trailingAnchor).isActive = true
+        backgroundImageView.bottomAnchor.constraint(equalTo: container.bottomAnchor).isActive = true
         
         let overlay: UIView = UIView()
         overlay.backgroundColor = #colorLiteral(red: 0.1601605713, green: 0.1644997299, blue: 0.186186552, alpha: 0.7061750856)
@@ -40,13 +41,25 @@ class DetailHeader: UIView {
         return container
     }()
     
+    private lazy var backgroundImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = ResourceHelper.Image.placeholder
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
     private lazy var posterImageView: UIImageView = {
         let view: UIImageView = UIImageView()
-        view.image = UIImage(named: "img_thumbnail")
+        view.image = ResourceHelper.Image.placeholder
         view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOpacity = 0.8
         view.layer.shadowOffset = .zero
         view.layer.shadowRadius = 8
+        
+        view.contentMode = .scaleAspectFill
+        view.clipsToBounds = true
         
         view.translatesAutoresizingMaskIntoConstraints = false
         view.widthAnchor.constraint(equalToConstant: 150).isActive = true
@@ -54,14 +67,15 @@ class DetailHeader: UIView {
         return view
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(observable: Observable<Game>){
+        self.gameObservable = observable
+        super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         self.setupView()
+        self.setupObserver()
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        self.setupView()
+        fatalError("init(coder:) has not been implemented")
     }
     
     
@@ -76,5 +90,21 @@ class DetailHeader: UIView {
         self.addSubview(self.posterImageView)
         self.posterImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         self.posterImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: ResourceHelper.Spacing.base).isActive = true
+    }
+    
+    private func setupObserver(){
+        self.gameObservable.subscribe(onNext: { (game) in
+            self.displayData(game: game)
+        }).disposed(by: self.disposeBag)
+    }
+    
+    private func displayData(game: Game){
+        if let background = game.backgroundImageAdditional, !background.isEmpty {
+            self.backgroundImageView.sd_setImage(with: URL(string: background), placeholderImage: UIImage(named: "placeholder"))
+        }
+        
+        if let poster = game.backgroundImage, !poster.isEmpty {
+            self.posterImageView.sd_setImage(with: URL(string: poster), placeholderImage: UIImage(named: "placeholder"))
+        }
     }
 }

@@ -38,6 +38,7 @@ open class BaseViewController<T: BaseViewModel>: UIViewController {
     }()
     
     
+    private var loadingView: UIView?
     
     public init(viewModel: T){
         super.init(nibName: nil, bundle: nil)
@@ -57,17 +58,29 @@ open class BaseViewController<T: BaseViewModel>: UIViewController {
         self.viewModel.loadingObservable
             .subscribe(onNext: { (isLoading) in
                 if isLoading {
-                    if self.presentedViewController == nil  {
-                        self.present(self.loadingDialog, animated: true, completion: nil)
-                    }
+                    self.showSpinner()
                 } else {
-                    if self.presentedViewController != nil {
-                        self.loadingDialog.dismiss(animated: true, completion: nil)
-                    }
+                    self.removeSpinner()
                 }
             }).disposed(by: self.disposeBag)
     }
     
     open func setupView(){
+    }
+    
+    private func showSpinner(){
+        self.loadingView = UIView(frame: self.view.bounds)
+        self.loadingView!.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+        
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.center = self.loadingView!.center
+        activityIndicator.startAnimating()
+        self.loadingView?.addSubview(activityIndicator)
+        self.view.addSubview(self.loadingView!)
+    }
+    
+    func removeSpinner(){
+        self.loadingView?.removeFromSuperview()
+        self.loadingView = nil
     }
 }

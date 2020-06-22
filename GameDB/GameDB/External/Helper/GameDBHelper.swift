@@ -17,6 +17,7 @@ struct ResourceHelper {
         static let orange: UIColor = UIColor(named: "Orange")!
         static let white: UIColor = UIColor(named: "White")!
         static let green: UIColor = UIColor(named: "Green")!
+        static let grey: UIColor = UIColor(named: "Grey")!
     }
     
     struct Image {
@@ -36,6 +37,8 @@ struct ResourceHelper {
             static let bold10: UIFont = UIFont.boldSystemFont(ofSize: 10)
             static let bold14: UIFont = UIFont.boldSystemFont(ofSize: 14)
             static let bold16: UIFont = UIFont.boldSystemFont(ofSize: 16)
+            static let bold20: UIFont = UIFont.boldSystemFont(ofSize: 20)
+            static let bold24: UIFont = UIFont.boldSystemFont(ofSize: 24)
             static let regular10: UIFont = UIFont.systemFont(ofSize: 10)
             static let regular14: UIFont = UIFont.systemFont(ofSize: 14)
             static let regular16: UIFont = UIFont.systemFont(ofSize: 16)

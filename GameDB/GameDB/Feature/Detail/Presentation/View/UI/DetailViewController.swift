@@ -11,18 +11,23 @@ import GameDBCore
 
 class DetailViewController: BaseViewController<DetailViewModel> {
     
+    var slug: String = "" {
+        didSet{
+            self.viewModel.getGameDetail(slug: self.slug)
+        }
+    }
+    
+    
     private lazy var detailHeader: DetailHeader = {
-        let view: DetailHeader = DetailHeader()
+        let view: DetailHeader = DetailHeader(observable: self.viewModel.gameObservable.asObservable())
         view.translatesAutoresizingMaskIntoConstraints = false
         view.heightAnchor.constraint(equalToConstant: 300).isActive = true
         return view
     }()
     
-    private lazy var detailHeader2: DetailHeader = {
-        let view: DetailHeader = DetailHeader()
-        view.backgroundColor = .blue
+    private lazy var detailDescription: DetailDescription = {
+        let view: DetailDescription = DetailDescription(observable: self.viewModel.gameObservable.asObservable())
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.heightAnchor.constraint(equalToConstant: 300).isActive = true
         return view
     }()
     
@@ -42,10 +47,9 @@ class DetailViewController: BaseViewController<DetailViewModel> {
     private lazy var containerStackView: UIStackView = {
         let view: UIStackView = UIStackView()
         view.axis = .vertical
-        view.distribution = .equalSpacing
-        view.spacing = ResourceHelper.Spacing.small
+        view.distribution = .fill
+        view.spacing = ResourceHelper.Spacing.base
         view.alignment = .fill
-        
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -86,9 +90,8 @@ class DetailViewController: BaseViewController<DetailViewModel> {
         self.containerStackView.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
         
         self.containerStackView.addArrangedSubview(self.detailHeader)
-    }
-    
-    override func setupObserver() {
+        self.containerStackView.addArrangedSubview(self.detailDescription)
         
+        self.scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
     }
 }

@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.1.0)
+  - Cosmos (22.1.0)
   - GameDBCore (1.0.0):
     - RxAlamofire
     - RxCocoa (~> 5)
@@ -22,12 +23,14 @@ PODS:
   - Swinject (2.7.1)
 
 DEPENDENCIES:
+  - Cosmos
   - GameDBCore (from `../GameDBCore`)
   - SDWebImage
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Cosmos
     - RxAlamofire
     - RxCocoa
     - RxRelay
@@ -41,6 +44,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
+  Cosmos: 2795b36ad4bbea1af3050d6d65576ed63875f86a
   GameDBCore: 2a03769d9e1458cecea54ddaed3ced47d8c3e553
   RxAlamofire: 15502b290253fab68688dafd60914c6390e9cc73
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
@@ -49,6 +53,6 @@ SPEC CHECKSUMS:
   SDWebImage: e3eae2eda88578db0685a0c88597fdadd9433f05
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
 
-PODFILE CHECKSUM: ad15762e36c6bd7e17f5751548b600233cebca1a
+PODFILE CHECKSUM: eb69dd700b590c4baa8548d596e9a1ca1363dcb3
 
 COCOAPODS: 1.9.1

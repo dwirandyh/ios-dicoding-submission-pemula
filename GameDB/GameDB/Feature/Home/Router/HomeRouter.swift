@@ -11,12 +11,18 @@ import Swinject
 
 protocol HomeRouter {
     func goToDetail(_ caller: UIViewController, slug: String)
+    func goToProfile(_ caller: UIViewController)
 }
 
 class HomeRouterImpl: HomeRouter {
     func goToDetail(_ caller: UIViewController, slug: String) {
         let viewController = Assembler.sharedAssembler.resolver.resolve(DetailViewController.self)!
         viewController.slug = slug
+        caller.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func goToProfile(_ caller: UIViewController) {
+        let viewController = AboutViewController()
         caller.navigationController?.pushViewController(viewController, animated: true)
     }
 }

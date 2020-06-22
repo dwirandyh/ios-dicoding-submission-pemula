@@ -25,6 +25,7 @@ struct ResourceHelper {
         static let pc: UIImage = UIImage(named: "ic_pc")!
         static let playStation: UIImage = UIImage(named: "ic_playstation")!
         static let xbox: UIImage = UIImage(named: "ic_xbox")!
+        static let profile: UIImage = UIImage(named: "img_profile")!
     }
     
     struct Typography {

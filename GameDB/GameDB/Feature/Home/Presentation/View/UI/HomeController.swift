@@ -65,6 +65,9 @@ class HomeViewController: BaseViewController<HomeViewModel> {
         self.title = "Game DB"
         self.view.backgroundColor = ResourceHelper.Color.backgroundColor
         
+        let aboutButton = UIBarButtonItem(title: "About", style: .plain, target: self, action: #selector(HomeViewController.openProfile))
+        self.navigationItem.rightBarButtonItem = aboutButton
+        
         let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backBarButtonItem
         
@@ -104,6 +107,10 @@ class HomeViewController: BaseViewController<HomeViewModel> {
                 }
             })
             .disposed(by: self.disposeBag)
+    }
+    
+    @objc func openProfile(){
+        self.router.goToProfile(self)
     }
 }
 

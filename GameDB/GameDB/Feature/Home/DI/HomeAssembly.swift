@@ -15,10 +15,15 @@ class HomeAssembly: Assembly {
         container.register(HomeRouter.self) { (resolver) in
             return HomeRouterImpl()
         }
+
+        container.register(HomeUseCase.self) { (resolver) in
+            let repository: GameRepository = resolver.resolve(GameRepository.self)!
+            return HomeUseCaseImpl(gameRepository: repository)
+        }
         
         container.register(HomeViewModel.self) { (resolver) in
-            let repository = resolver.resolve(GameRepository.self)
-            return HomeViewModel(repository: repository!)
+            let homeUseCase: HomeUseCase = resolver.resolve(HomeUseCase.self)!
+            return HomeViewModel(homeUseCase: homeUseCase)
         }
         container.register(HomeViewController.self) { (resolver) in
             let viewModel = resolver.resolve(HomeViewModel.self)

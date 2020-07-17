@@ -66,6 +66,8 @@ open class BaseViewController<T: BaseViewModel>: UIViewController {
     }
     
     open func setupView(){
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = backBarButtonItem
     }
     
     private func showSpinner(){

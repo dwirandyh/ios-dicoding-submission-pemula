@@ -68,9 +68,6 @@ class HomeViewController: BaseViewController<HomeViewModel> {
         let aboutButton = UIBarButtonItem(title: "About", style: .plain, target: self, action: #selector(HomeViewController.openProfile))
         self.navigationItem.rightBarButtonItem = aboutButton
         
-        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        navigationItem.backBarButtonItem = backBarButtonItem
-        
         self.view.addSubview(self.stackView)
         self.stackView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
         self.stackView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true

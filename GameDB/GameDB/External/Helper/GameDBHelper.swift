@@ -21,7 +21,7 @@ struct ResourceHelper {
     }
     
     struct Image {
-        static let placeholder: UIImage = UIImage(named: "Placeholder")!
+        static let placeholder: UIImage = UIImage(named: "placeholder")!
         static let pc: UIImage = UIImage(named: "ic_pc")!
         static let playStation: UIImage = UIImage(named: "ic_playstation")!
         static let xbox: UIImage = UIImage(named: "ic_xbox")!

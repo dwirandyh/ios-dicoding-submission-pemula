@@ -12,17 +12,17 @@ import RxSwift
 import RxCocoa
 
 class DetailViewModel: BaseViewModel {
-    var repository: GameRepository
+    var detailUseCase: DetailUseCase
     var gameObservable: BehaviorRelay<Game> = BehaviorRelay<Game>(value: Game.defaultValue)
     
-    init(repository: GameRepository) {
-        self.repository = repository
+    init(detailUseCase: DetailUseCase) {
+        self.detailUseCase = detailUseCase
         super.init()
     }
     
     func getGameDetail(slug: String){
         self.loadingObservable.accept(true)
-        self.repository.getGameDetail(slug: slug)
+        self.detailUseCase.getGameDetail(slug: slug)
             .subscribe(onNext: { (game) in
                 self.gameObservable.accept(game)
                 self.loadingObservable.accept(false)

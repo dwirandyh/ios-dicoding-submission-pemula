@@ -16,3 +16,9 @@ extension UIView {
         self.layer.shadowRadius = 4
     }
 }
+
+extension UINavigationController {
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
+       return topViewController?.preferredStatusBarStyle ?? .default
+    }
+}

@@ -11,7 +11,7 @@ import Cosmos
 import RxSwift
 import GameDBCore
 
-class DetailDescription: UIView {
+class DetailDescription: UIStackView {
     
     let disposeBag: DisposeBag = DisposeBag()
     var gameObservable: Observable<Game>
@@ -133,21 +133,24 @@ class DetailDescription: UIView {
         self.setupView()
         self.setupObserver()
     }
-    
-    required init?(coder: NSCoder) {
+
+    required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
     
     private func setupView(){
-        self.addSubview(self.containerStackView)
-        self.containerStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: ResourceHelper.Spacing.base).isActive = true
-        self.containerStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -ResourceHelper.Spacing.base).isActive = true
-        self.containerStackView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        self.axis = .vertical
+        self.distribution = .fill
+        self.spacing = ResourceHelper.Spacing.small
+        self.alignment = .leading
+
+        self.translatesAutoresizingMaskIntoConstraints = false
         
-        self.containerStackView.addArrangedSubview(self.titleStackView)
-        self.containerStackView.addArrangedSubview(self.genreLabel)
-        self.containerStackView.addArrangedSubview(self.ratingStackView)
-        self.containerStackView.addArrangedSubview(self.descriptionLabel)
+        self.addArrangedSubview(self.titleStackView)
+        self.addArrangedSubview(self.genreLabel)
+        self.addArrangedSubview(self.ratingStackView)
+        self.addArrangedSubview(self.descriptionLabel)
     }
     
     private func setupObserver(){

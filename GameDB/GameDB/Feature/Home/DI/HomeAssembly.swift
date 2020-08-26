@@ -30,5 +30,10 @@ class HomeAssembly: Assembly {
             let router = resolver.resolve(HomeRouter.self)
             return HomeViewController(viewModel: viewModel!, router: router!)
         }
+
+        container.register(TestViewController.self) { (resolver) in
+            let viewModel = resolver.resolve(HomeViewModel.self)
+            return TestViewController(viewModel: viewModel!)
+        }
     }
 }

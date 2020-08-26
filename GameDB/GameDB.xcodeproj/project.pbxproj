@@ -12,6 +12,7 @@
 		8D243EF4248C8A0C007856F4 /* DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D243EF3248C8A0C007856F4 /* DI.swift */; };
 		8D243EFB248C9C60007856F4 /* GameViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D243EFA248C9C60007856F4 /* GameViewCell.swift */; };
 		8D27307C24A0F49400199229 /* DetailDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D27307B24A0F49400199229 /* DetailDescription.swift */; };
+		8D50EF8F24F6366200786B24 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D50EF8E24F6366200786B24 /* TestViewController.swift */; };
 		8D648E8E24C1E63D006ECD40 /* HomeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D648E8D24C1E63D006ECD40 /* HomeUseCase.swift */; };
 		8D648E9924C1F097006ECD40 /* DetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D648E9824C1F097006ECD40 /* DetailUseCase.swift */; };
 		8D7EBB23248C4AD8006D0C9C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7EBB22248C4AD8006D0C9C /* HomeViewModel.swift */; };
@@ -64,6 +65,7 @@
 		8D243EF3248C8A0C007856F4 /* DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DI.swift; sourceTree = "<group>"; };
 		8D243EFA248C9C60007856F4 /* GameViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewCell.swift; sourceTree = "<group>"; };
 		8D27307B24A0F49400199229 /* DetailDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDescription.swift; sourceTree = "<group>"; };
+		8D50EF8E24F6366200786B24 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		8D648E8D24C1E63D006ECD40 /* HomeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUseCase.swift; sourceTree = "<group>"; };
 		8D648E9824C1F097006ECD40 /* DetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUseCase.swift; sourceTree = "<group>"; };
 		8D7EBB22248C4AD8006D0C9C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -389,6 +391,7 @@
 				8DDE24C32486ABA600F77AAF /* LaunchScreen.storyboard */,
 				8DDE24C62486ABA600F77AAF /* Info.plist */,
 				8DF43CA124A11859003892C7 /* Storyboard.storyboard */,
+				8D50EF8E24F6366200786B24 /* TestViewController.swift */,
 			);
 			path = GameDB;
 			sourceTree = "<group>";
@@ -681,6 +684,7 @@
 				8D243EF2248C87E4007856F4 /* HomeAssembly.swift in Sources */,
 				8D920880249EBBEA00D9005E /* DetailViewModel.swift in Sources */,
 				8DF43CA024A11365003892C7 /* AboutViewController.swift in Sources */,
+				8D50EF8F24F6366200786B24 /* TestViewController.swift in Sources */,
 				8D27307C24A0F49400199229 /* DetailDescription.swift in Sources */,
 				8D92088D249EC3DE00D9005E /* HomeRouter.swift in Sources */,
 				8DA3CF462496502A008AEA26 /* GameDBHelper.swift in Sources */,
@@ -790,6 +794,10 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-Xlinker",
+					"-interposable",
+				);
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -843,6 +851,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = (
+					"-Xlinker",
+					"-interposable",
+				);
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -862,6 +874,35 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"Cosmos\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GameDBCore\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"RxAlamofire\"",
+					"-framework",
+					"\"RxCocoa\"",
+					"-framework",
+					"\"RxRelay\"",
+					"-framework",
+					"\"RxSwift\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"Swinject\"",
+					"-Xlinker",
+					"-interposable",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = dwirandh.com.GameDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -880,6 +921,35 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"Cosmos\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GameDBCore\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"RxAlamofire\"",
+					"-framework",
+					"\"RxCocoa\"",
+					"-framework",
+					"\"RxRelay\"",
+					"-framework",
+					"\"RxSwift\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"Swinject\"",
+					"-Xlinker",
+					"-interposable",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dwirandh.com.GameDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
